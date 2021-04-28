@@ -8,6 +8,5 @@
 </h1>
 
 ## 🚀  Startando projeto....
-    ```sh
+
     28/04 - Inicio Projeto 
-    ```
