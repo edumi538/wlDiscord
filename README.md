@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://discord.gg/cdl">
-    <img alt="CdlRPLoogo" src="https://media.discordapp.net/attachments/836434793025503243/836864282255294504/cdl.png?width=473&height=473" width="60" />
+    <img alt="CdlRPLoogo" src="https://cdn.discordapp.com/attachments/792945435073314876/836865535739691048/cdl.png" width="100" />
   </a>
 </p>
 <h1 align="center">
