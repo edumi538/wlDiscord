@@ -7,10 +7,7 @@
   Whitelist Automática Via Bot De Discord
 </h1>
 
-<center>
+
 ## 🚀  Startando projeto....
-</center>
 
-
-
-    28/04 - Inicio Projeto 
+28/04 - Inicio Projeto 
