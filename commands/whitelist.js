@@ -4,7 +4,6 @@ const randomstring = require('randomstring');
 module.exports.run = async (client, message) => {
     message.delete({ timeout: 300 }).catch(() => {})
     if (message.guild.channels.cache.find(a => a.name == message.author.id)) return message.reply(`Você já possui uma whitelist aberta, siga em: <#${message.guild.channels.cache.find(a => a.name == message.author.id).id}>`).catch((a) => a.delete({ timeout: 10000 }).catch(() => {}))
-  
     var randWL = randomstring.generate({
         length: 8,
         charset: 'hex'
@@ -25,11 +24,10 @@ module.exports.run = async (client, message) => {
     Se falhar, terá que refazer a whitelist!
     `)
     
-	.setFooter('dev by thejota#0001', 'https://cdn.discordapp.com/attachments/792945435073314876/836865535739691048/cdl.png');
-    await ch.send(embed)  
+	  .setFooter('dev by thejota#0001', 'https://cdn.discordapp.com/attachments/792945435073314876/836865535739691048/cdl.png');
+    await ch.send(embed)
 
-
-  };
+};
   
   function nigger(ch) {
     ch.delete({ timeout: 10000 }).catch(() => {})
