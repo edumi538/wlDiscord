@@ -1,0 +1,19 @@
+{
+  "name": "wldiscord",
+  "version": "1.0.0",
+  "description": "discord fivem bot whitelist",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ojota-dev/wlDiscord.git"
+  },
+  "author": "thejota#0001",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ojota-dev/wlDiscord/issues"
+  },
+  "homepage": "https://github.com/ojota-dev/wlDiscord#readme"
+}
