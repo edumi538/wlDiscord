@@ -4,13 +4,6 @@ const randomstring = require('randomstring');
 module.exports.run = async (client, message) => {
     message.delete({ timeout: 300 }).catch(() => {})
     if (message.guild.channels.cache.find(a => a.name == message.author.id)) return message.reply(`Você ja tem um aberto: <#${message.guild.channels.cache.find(a => a.name == message.author.id).id}>`).catch((a) => a.delete({ timeout: 10000 }).catch(() => {}))
-    let msg = null;
-    let nome;
-    let sobrenome;
-    let id;
-    let idade;
-    let area;
-    let tempoDisp;
   
     var randWL = randomstring.generate({
         length: 8,
