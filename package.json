@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ojota-dev/wlDiscord/issues"
   },
-  "homepage": "https://github.com/ojota-dev/wlDiscord#readme"
+  "homepage": "https://github.com/ojota-dev/wlDiscord#readme",
+  "dependencies": {
+    "discord.js": "^12.5.3"
+  }
 }
