@@ -8,6 +8,8 @@ module.exports.run = async (client, message) => {
     if (err) throw err;
     let sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
     message.delete({ timeout: 300 }).catch(() => {})
+    if (message.channel.id === '837040168392327182') {
+
     if (message.guild.channels.cache.find(a => a.name == message.author.id)) return message.reply(`Você já possui uma whitelist aberta, siga em: <#${message.guild.channels.cache.find(a => a.name == message.author.id).id}>`).catch((a) => a.delete({ timeout: 10000 }).catch(() => {}))
     var randWL = randomstring.generate({
         length: 8,
@@ -18,7 +20,7 @@ module.exports.run = async (client, message) => {
         nome: 'Nenhum',
         finalizou: 'false'
       }
-    const ch = await message.guild.channels.create(message.author.id, { parent: '836887051743658005', permissionOverwrites: [ { id: message.guild.id, deny: ['VIEW_CHANNEL'], }, { id: message.author.id, allow: ['VIEW_CHANNEL', 'SEND_MESSAGES'], }, ] })
+    const ch = await message.guild.channels.create(message.author.id, { parent: '837040168392327180', permissionOverwrites: [ { id: message.guild.id, deny: ['VIEW_CHANNEL'], }, { id: message.author.id, allow: ['VIEW_CHANNEL', 'SEND_MESSAGES'], }, ] })
     // Embeds Iniciar
     const embed = new MessageEmbed()
     .setAuthor('Cabaré City', 'https://cdn.discordapp.com/attachments/792945435073314876/836865535739691048/cdl.png', '')
@@ -103,7 +105,7 @@ module.exports.run = async (client, message) => {
             connection.query(sql, function (err, result) {
               if (err) throw err;         
        });
-       await sleep(60000)
+       await sleep(30000)
        let whitelisted = message.guild.roles.cache.get("837135523646537740");
        await message.member.roles.add(whitelisted);
        const embedv = new MessageEmbed()
@@ -127,7 +129,15 @@ module.exports.run = async (client, message) => {
     }
     
   }); 
+} else {
+  message.react('😡')
+  message.channel.send('Você só pode executar este comando em <#837040168392327182>')
+  message.delete({ timeout: 300 }).catch(() => {})
+  return
+}
+
  });
+ 
 };
   
   function nigger(ch) {
