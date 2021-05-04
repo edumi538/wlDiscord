@@ -1,14 +1,14 @@
 const { MessageEmbed} = require('discord.js')
 const randomstring = require('randomstring');
 const pool = require('../database/index')
-
+const serverCfg = require('../servercfg.json')
 module.exports.run = async (client, message) => {
                
   pool.getConnection(async function(err, connection) {
     if (err) throw err;
     let sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
     message.delete({ timeout: 300 }).catch(() => {})
-    if (message.channel.id === '837040168392327182') {
+    if (message.channel.id === `${serverCfg.idCanalWL}`) {
 
     if (message.guild.channels.cache.find(a => a.name == message.author.id)) return message.reply(`Você já possui uma whitelist aberta, siga em: <#${message.guild.channels.cache.find(a => a.name == message.author.id).id}>`).catch((a) => a.delete({ timeout: 10000 }).catch(() => {}))
     var randWL = randomstring.generate({
@@ -20,50 +20,50 @@ module.exports.run = async (client, message) => {
         nome: 'Nenhum',
         finalizou: 'false'
       }
-    const ch = await message.guild.channels.create(message.author.id, { parent: '837040168392327180', permissionOverwrites: [ { id: message.guild.id, deny: ['VIEW_CHANNEL'], }, { id: message.author.id, allow: ['VIEW_CHANNEL', 'SEND_MESSAGES'], }, ] })
+    const ch = await message.guild.channels.create(message.author.id, { parent: `${serverCfg.idCategoriaWL}`, permissionOverwrites: [ { id: message.guild.id, deny: ['VIEW_CHANNEL'], }, { id: message.author.id, allow: ['VIEW_CHANNEL', 'SEND_MESSAGES'], }, ] })
     // Embeds Iniciar
     const embed = new MessageEmbed()
-    .setAuthor('Cabaré City', 'https://cdn.discordapp.com/attachments/792945435073314876/836865535739691048/cdl.png', '')
+    .setAuthor(`${serverCfg.servername}`, 'https://thegameworld.net/wp-content/uploads/2020/10/fivemlogo001.png', '')
     .setDescription(`
-    <a:2_seta_direita:832756896279691265>  Olá <@${message.author.id}>!
+    >>  Olá <@${message.author.id}>!
 
-    <a:2_seta_direita:832756896279691265> Seja bem vindo ao nosso Sistema Exclusivo de Whitelist!
+    >> Seja bem vindo ao nosso Sistema Exclusivo de Whitelist!
 
-    <a:2_seta_direita:832756896279691265>  Para iniciar as perguntas digite aqui neste canal **iniciar**
+    >>  Para iniciar as perguntas digite aqui neste canal **iniciar**
 
-    <a:2_seta_direita:832756896279691265>  você possui 1 minuto para responder a cada pergunta
-    <a:2_seta_direita:832756896279691265>  somente você e o bot possuem acesso a este canal
+    >>  você possui 1 minuto para responder a cada pergunta
+    >>  somente você e o bot possuem acesso a este canal
 
-    <a:2_seta_direita:832756896279691265>  Se falhar, terá que refazer a whitelist!
+    >>  Se falhar, terá que refazer a whitelist!
     `) 
-	  .setFooter('dev by thejota#0001', 'https://cdn.discordapp.com/attachments/792945435073314876/836865535739691048/cdl.png');
+	  .setFooter('dev by thejota#0001', 'https://thegameworld.net/wp-content/uploads/2020/10/fivemlogo001.png');
   /////// Embeds Pergunta !
    const idEmbed = new MessageEmbed()
-   .setTitle('Pergunta n.º <a:11_:832763122783223848> ')
+   .setTitle('Pergunta n.º 1 ')
     .setColor('#600670')
     .setDescription(`
-    <a:2_seta_direita:832756896279691265> Qual o seu id apresentado no jogo?
+    >> Qual o seu id apresentado no jogo?
     `) 
    ///
     const nameEmbed = new MessageEmbed()
-    .setTitle('Pergunta n.º <a:12_:832763130916503612>')
+    .setTitle('Pergunta n.º 2')
     .setColor('#600670')
     .setDescription(`
-    <a:2_seta_direita:832756896279691265> Qual o nome  e sobrenome do seu personagem?
+    >> Qual o nome  e sobrenome do seu personagem?
     `) 
    ///
    const embedrr = new MessageEmbed()
-   .setTitle('Cabaré City')
+   .setTitle(`${serverCfg.servername}`)
    .setColor('RED')
    .setTitle('Ops... ')
    .setDescription(`! <@${message.author.id}>, algo deu errado. Este jogador já possui whitelist!`);
    ////
    const finalEmbed = new MessageEmbed()
-   .setTitle('Cabaré City')
+   .setTitle(`${serverCfg.servername}`)
    .setColor('#600670')
    .setDescription(`
     Parabéns! <@${message.author.id}>!
-    Estamos concluindo seu registro! <a:2_simmm:832755559870496819>
+    Estamos concluindo seu registro! :D
    
     Fique tranquilo que eu lhe avisarei no privado sobre o resultado!
 
@@ -106,17 +106,19 @@ module.exports.run = async (client, message) => {
               if (err) throw err;         
        });
        await sleep(30000)
-       let whitelisted = message.guild.roles.cache.get("837135523646537740");
+       let whitelisted = message.guild.roles.cache.get(`${serverCfg.idCargoWL}`);
+       let notwhitelisted = message.guild.roles.cache.get(`${serverCfg.idCargoNotWL}`)
        await message.member.roles.add(whitelisted);
+       await message.member.roles.remove(notwhitelisted)
        const embedv = new MessageEmbed()
-       .setAuthor("Seja bem vindo(a) ao Cabaré City.", "https://cdn.discordapp.com/emojis/778780190280646676.gif?v=1")
+       .setAuthor(`Seja bem vindo(a) ao ${serverCfg.servername}.`, "https://cdn.discordapp.com/emojis/778780190280646676.gif?v=1")
        .setDescription(`
-       Você acaba de ser aprovado na whitelist do Cabaré City!
+       Você acaba de ser aprovado na whitelist do ${serverCfg.servername}!
 
        #Tecle F8 e digite no console:
-       connect 191.232.187.176
+       connect ${serverCfg.ipservidor}
 
-       Cabaré city é um servidor de fivem livre para se divertir!
+       ${serverCfg.servername}, é um servidor de fivem livre para se divertir!
        `)
        .setColor("#ff6496")
        .setImage('https://i.pinimg.com/originals/d0/5a/5f/d05a5f8348acaf793bb3e399928e7194.gif')
@@ -131,8 +133,7 @@ module.exports.run = async (client, message) => {
   }); 
 } else {
   message.react('😡')
-  message.channel.send('Você só pode executar este comando em <#837040168392327182>')
-  message.delete({ timeout: 300 }).catch(() => {})
+  message.channel.send(`Você só pode executar este comando em <#${serverCfg.idCanalWL}>`).then(x => x.delete({ timeout: 19000 }).catch(() => {}));
   return
 }
 

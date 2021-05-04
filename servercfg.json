@@ -1,0 +1,9 @@
+{
+    "servername": "Nome do Servidor",
+    "idCargoWL": "ID CARGO DE WHITELIST",
+    "ipservidor": "ip do servidor",
+    "idCargoNotWL": "ID CARGO SEM WHITELIST",
+    "idCanalWL": "ID CANAL DE WHITELIST",
+    "idCategoriaWL": "ID DA CATEGORIA QUE VAI CRIAR CANAL",
+    "databasename": "NOME DO BANCO DE DADOS"
+}
