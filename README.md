@@ -11,3 +11,15 @@
 ## 🚀  Startando projeto....
 
     28/04 - Inicio Projeto 
+
+
+
+## 🚀  Projeto finalizado....
+
+    04/05 - Fim do Projeto 
+
+
+
+## 🚀  Meu discord....
+    
+     thejota#0001
